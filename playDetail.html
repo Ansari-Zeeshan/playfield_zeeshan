@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playfield detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/customdropdown.css">
+</head>
+
+<body>
+    <header class="header bg-white d-non" id="header">
+        <!-- <div class=" header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div> -->
+        <div><img src="img/play_field.svg" width="100" alt=""></div>
+        <div class="d-flex justify-content-between">
+            <div class="searchBox d-flex mr-5"> <input type="text" id="search2" class="form-control form-search"
+                    placeholder="Search Here">
+                <a href="#" onclick="openSearch()"><img src="img/searchIcon.svg" alt=""></a>
+            </div>
+            <div class="mr-5"><a href="#" class="text-dark help_text">Help</a></div>
+            <div class="mr-5">
+              <div class="select-box">
+                  <div class="select-box__current" tabindex="1">
+                      <div class="select-box__value">
+                          <input class="select-box__input" type="radio" id="0" value="1" name="user_profile_list"
+                              checked="checked">
+                          <p class="select-box__input-text">EN</p>
+                      </div>
+                      <div class="select-box__value">
+                          <input class="select-box__input" type="radio" id="1" value="2" name="user_profile_list">
+                          <p class="select-box__input-text">US</p>
+                      </div>
+                      <div class="select-box__value">
+                          <input class="select-box__input" type="radio" id="2" value="3" name="user_profile_list">
+                          <p class="select-box__input-text">EU</p>
+                      </div>
+                      <img class="select-box__icon" src="img/arrow_down.svg" alt="Arrow Icon" aria-hidden="true">
+                  </div>
+                  <ul class="select-box__list">
+                      <li>
+                          <label class="select-box__option" for="0" aria-hidden="aria-hidden">EN</label>
+                      </li>
+                      <li>
+                          <label class="select-box__option" for="1" aria-hidden="aria-hidden">US</label>
+                      </li>
+                      <li>
+                          <label class="select-box__option" for="2" aria-hidden="aria-hidden">EU</label>
+                      </li>
+                  </ul>
+              </div>  
+              <!-- select-box closed -->
+            </div>
+        </div>
+        <!-- <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div> -->
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a id="burger2" href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="display:none;"><img
+                src="img/close.svg" width="24" alt=""><span>Collapse</span></a>
+        <a id="burger" href="#" class="openbtn" onclick="openNav()"><img src="img/close.svg" width="24"
+                alt=""><span>Collapse</span></a>
+        <a href="#" class="active"><img src="img/home.svg" alt=""> <span class="active">Home</span></a>
+        <a href="#"><img src="img/football.svg" alt=""> <span>Playfield</span></a>
+        <a href="#"><img src="img/profile.svg" alt=""> <span>Ownership</span></a>
+        <a href="#"><img src="img/whistle.svg" alt=""> <span>Coach</span></a>
+        <a href="#"><img src="img/pie.svg" alt=""> <span>Website Analytics</span></a>
+    </div>
+
+    <div class="playDetail_overview">
+      <div class="container">
+        <div class="row">
+            <div class="head">
+                <h3>Playfield Detail</h3>
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="slide_main">
+                    <div class="slide_div">
+                        <img src="img/sport.jpg" alt="sport" class="active">
+                    </div>
+                    <div class="thumbnail_div">
+                        <div class="row row-cols-5">
+                            <div class="col thumb-img">
+                                <img src="img/volleyball.jpg" alt="">
+                            </div>
+                            <div class="col thumb-img">
+                                <img src="img/golf.jpg" alt="">
+                            </div>
+                            <div class="col thumb-img">
+                                <img src="img/cricket.jpg" alt="">
+                            </div>
+                            <div class="col thumb-img">
+                                <img src="img/golf2.jpg" alt="">
+                            </div>
+                            <div class="col thumb-img">
+                                <img src="img/baseball.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-7">
+                <div class="d-flex justify-content-md-between text_head">
+                    <div class="left_head">
+                        <h3>Santhosh Kumar Stadium</h3>
+                        <ul>
+                            <li>Cricket</li>
+                            <li>Football</li>
+                            <li>Hockey</li>
+                        </ul>
+                    </div>
+                    <div class="right_head">
+                        <span>Seating Capacity</span>
+                        <div class="d-flex">
+                            <img src="img/gicon.png" alt="">
+                            <h2>40,000</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs_pills">
+                    <div class="btnDiv">
+                        <div class="tab-btn active" data-target=".basic">Basic Details</div>
+                        <div class="tab-btn" data-target=".facility">Facilities</div>
+                        <div class="tab-btn" data-target=".remarks">Remarks</div>
+                        <div class="tab-btn" data-target=".amenity">Amenities</div>
+                        <div class="tab-btn" data-target=".location">Location</div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tabCon basic active">
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Address</p></div>
+                                <div class="col-md-8"><p>Park, Mahatma Gandhi Rd, near Cubbon Road, Shivaji Nagar</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Indoor/Outdoor</p></div>
+                                <div class="col-md-8"><p>Indoor</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>District</p></div>
+                                <div class="col-md-8"><p>Bengaluru</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>State</p></div>
+                                <div class="col-md-8"><p>Karnataka</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Pin Code</p></div>
+                                <div class="col-md-8"><p>560001</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Name of In-Charge</p></div>
+                                <div class="col-md-8"><p>Santosh Kumar</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Contact Number</p></div>
+                                <div class="col-md-8"><p>080 4015 4015</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Email ID</p></div>
+                                <div class="col-md-8"><p>Santosh Kumar@gmail.com</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Ownership of Infrastructure</p></div>
+                                <div class="col-md-8"><p>Government of Karnataka</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Total Capital Utilized till date (in INR)</p></div>
+                                <div class="col-md-8"><p>200000</p></div>
+                            </div>
+                        </div>
+                        <div class="tabCon facility">
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Name of Sports</p></div>
+                                <div class="col-md-8"><p>Park, Mahatma Gandhi Rd, near Cubbon Road, Shivaji Nagar</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Flood Lights/Night operation facility</p></div>
+                                <div class="col-md-8"><p>Yes</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Type of Court</p></div>
+                                <div class="col-md-8"><p>Grassy</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Total Seating Capacity</p></div>
+                                <div class="col-md-8"><p>40,000</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Area</p></div>
+                                <div class="col-md-8"><p>18 acres</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>Athletes resources on Daily Basis</p></div>
+                                <div class="col-md-8"><p>100</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>No. of Courts (for simultaneous)</p></div>
+                                <div class="col-md-8"><p>100</p></div>
+                            </div>
+                            <div class="row row-cols-2 border-bottom bg-white">
+                                <div class="col-md-4"><p>No. of Trained Coaches:</p></div>
+                                <div class="col-md-8"><p>500</p></div>
+                            </div>
+                        </div>
+                        <div class="tabCon remarks">
+                            <p>The surface of a game court—as opposed to simply playing on concrete or asphalt is designed for safe 
+                                play and to reduce injury. The surface of a game court—as opposed to simply playing on concrete or 
+                                asphalt is designed for safe play and to reduce injury.</p>
+                        </div>
+                        <div class="tabCon amenity">
+                            <div class="row">
+                                <div class="col-md-3"><p>Medical Room</p></div>
+                                <div class="col-md-3"><p>Restaurant</p></div>
+                                <div class="col-md-3"><p>Hostel Facility</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><p>Conference Rooms</p></div>
+                                <div class="col-md-3"><p>Car and coach parking</p></div>
+                                <div class="col-md-3"><p>Media centre</p></div>
+                            </div>
+                        </div>
+                        <div class="tabCon location">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946147.764491116!2d74.07330886925085!3d15.01157149975934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4c37bf488f%3A0x41f1d28cd1757cd5!2sKarnataka!5e0!3m2!1sen!2sin!4v1652423192529!5m2!1sen!2sin" 
+                            width="95%" height="370" style="border:0;" allowfullscreen="" loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/playDetail.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
