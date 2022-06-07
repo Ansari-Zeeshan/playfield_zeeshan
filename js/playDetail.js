@@ -14,7 +14,7 @@ thumbImg.forEach((thumb)=>
       setTimeout(() => {
         img.classList.add('active');
         img.src = targetsrc;
-      }, 50);
+      }, 20);
     }
   })
 })

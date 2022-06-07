@@ -1,157 +1,72 @@
-const openContainer = document.querySelectorAll('.playfield_overview .select-box .selected');
-const tabBtn = document.querySelectorAll('.playfield_overview .btnDiv p');
-const select = document.querySelectorAll('.playfield_overview .search-box input');
-const optContainer = document.querySelectorAll('.playfield_overview .select-box .options-container');
-const listOverlay = document.querySelector('.playfield_overview .listOverlay');
-const allSelectedbox = document.querySelectorAll('.playfield_overview .select-box .selected');
-const openExport = document.querySelector('.playfield_overview .right_div .export > button');
-const openSearch2 = document.querySelector('.playfield_overview .right_div .search img');
-const alrShowExport = document.querySelector('.playfield_overview .right_div .export .showExport');
+const menuTrigger = document.querySelector('header #burgersm');
+const mobilemenu = document.querySelector('#mySidenav');
+const closemenu = document.querySelector('#mySidenav #burgersm2');
+const menuOverlay = document.querySelector('.menuOverlay');
+const sidenav = document.querySelector('#mySidenav');
+const body = document.querySelector('body');
 
-openSearch2.addEventListener('click',(e)=>
+menuTrigger.addEventListener('click',(e)=>
 {
-  let showSearch = e.target.closest('.search').querySelector('input');
-  if(!showSearch.classList.contains('active'))
+  let body = e.target.closest('body');
+  if(!mobilemenu.classList.contains('active'))
   {
-    showSearch.classList.add('active');
+    body.style.overflow="hidden";
+    menuOverlay.classList.add('active');
+    mobilemenu.classList.add('active');
   }
   else
   {
-    showSearch.classList.remove('active');
+    body.style.overflow="auto";
+    menuOverlay.classList.remove('active');
+    mobilemenu.classList.remove('active');
   }
 })
 
-openExport.addEventListener('click',(e)=>
+closemenu.addEventListener('click',(e)=>
 {
-  let showExp = e.target.closest('.export').querySelector('.showExport');
-  if(!showExp.classList.contains('active'))
+  let body = e.target.closest('body');
+  if(mobilemenu.classList.contains('active'))
   {
-    listOverlay.classList.add('active');
-    openExport.classList.add('active');
-    showExp.classList.add('active');
-  }
-  else
-  {
-    listOverlay.classList.remove('active');
-    openExport.classList.remove('active');
-    showExp.classList.remove('active');
+    openSidemnu(body);
   }
 })
 
-// Search Values
-select.forEach((select)=>
+menuOverlay.addEventListener('click',(e)=>
 {
-  select.addEventListener('input',(e)=>
-  {    
-    let value = e.target.value;
-    value = value.toLowerCase();
-    let allopt = e.target.closest('.options-container').querySelectorAll('.option label');
-
-    allopt.forEach((opt)=>
-    {
-      if(opt.innerText.toLowerCase().includes(value))
-      {
-        let option = opt.closest('.mainoption');
-        option.style.display="block";
-      }
-      else
-      {
-        let option = opt.closest('.mainoption');
-        option.style.display="none";
-      }
-    })
-  })
-})
-
-openContainer.forEach((open)=>
-{
-  open.addEventListener('click',(e)=>
+  let body = e.target.closest('body');
+  if(mobilemenu.classList.contains('active'))
   {
-     let optionCon = e.target.closest('.select-box').querySelector('.options-container');
-     let selectBox = e.target.closest('.select-box').querySelector('.selected');
-     if(!optionCon.classList.contains('active'))
-     {
-       listOverlay.classList.add('active');
-       selectBox.classList.add('active');
-       optionCon.classList.add('active');
-     }
-     else
-     {
-       listOverlay.classList.remove('active');
-       selectBox.classList.remove('active');
-       optionCon.classList.remove('active');
-     }
-  })
+    openSidemnu(body);
+  }
 })
 
-const eventList = ['keyup', 'click'];
-eventList.forEach(function(e) {
-  window.addEventListener(e, checkType);
+function openSidemnu(body)
+{
+  body.style.overflow="auto";
+  menuOverlay.classList.remove('active');
+  mobilemenu.classList.remove('active');
+}
+
+const windowEventList = ['load', 'resize'];
+windowEventList.forEach(function(e) {
+  window.addEventListener(e, setzIndex);
 });
 
-function checkType(e)
+function setzIndex(e)
 {
-  if(e.type==="keyup")
-  {
-    if(e.key === 'Escape')
+   if(e.type==="load" || e.type==="resize")
+   {
+    let bodyWidth = body.clientWidth;
+    if(bodyWidth > 849)
     {
-      disableAll();
+      sidenav.style.zIndex = 40;
     }
-  }
-  if(e.type==="click" && e.target===listOverlay)
-  {
-    if(listOverlay.classList.contains('active'))
+    else
     {
-      disableAll();
+      sidenav.style.zIndex = 100;
     }
-  }
+   }
 }
-
-function disableAll()
-{
-  optContainer.forEach((container)=>
-  {
-    if(container.classList.contains('active'))
-    {
-      listOverlay.classList.remove('active');
-      container.classList.remove('active');
-    }
-  })
-
-  allSelectedbox.forEach((allBox)=>
-  {
-    if(allBox.classList.contains('active'))
-    {
-      allBox.classList.remove('active');
-    }
-  })
-
-  if(alrShowExport.classList.contains('active'))
-  {
-    listOverlay.classList.remove('active');
-    openExport.classList.remove('active');
-    alrShowExport.classList.remove('active');
-  }
-}
-
-tabBtn.forEach((tab)=>
-{
-  tab.addEventListener('click',(e)=>
-  {
-    let btn = e.target;
-    if(!btn.classList.contains('active'))
-    {
-      let activeBtn = e.target.closest('.btnDiv').querySelector('.tab-btn.active');
-      activeBtn.classList.remove('active');
-      btn.classList.add('active');
-      let target = e.target.getAttribute('data-target');
-      let activeData = e.target.closest('.row').querySelector('.tab-content .tabCon.active');
-      let targetData = e.target.closest('.row').querySelector(target);
-      activeData.classList.remove('active');
-      targetData.classList.add('active');
-    }
-  })
-})
 
 function openNav() {
     var element = document.getElementById("mySidenav");
@@ -177,3 +92,34 @@ function openSearch(){
   element.classList.toggle("form-search")
   document.getElementById("search2").style.transition = "ease-in .2s";
 }  
+
+
+// Create a media condition that targets viewports at least 768px wide
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+// Check if the media query is true
+if (mediaQuery.matches) {
+  // Then 
+  function openNav() {
+    var element = document.getElementById("mySidenav");
+    element.classList.add("mystyle");
+    document.getElementById("mySidenav").style.width = "80%";
+    document.getElementById("mySidenav").style.zIndex = "999";
+    document.getElementById("opacityDiv").style.display = "block";
+    document.getElementById("main").style.marginLeft = "0px";
+    document.getElementById("burgersm").style.display = "none";
+    document.getElementById("burgersm2").style.display = "block";
+  }
+
+  function closeNav() {
+    var element = document.getElementById("mySidenav");
+    element.classList.remove("mystyle");
+    document.getElementById("mySidenav").style.zIndex = "0";
+    document.getElementById("mySidenav").style.width = "0px";
+    document.getElementById("main").style.marginLeft= "0px";
+    document.getElementById("burgersm2").style.display = "none";
+    document.getElementById("burgersm").style.display = "block";
+    document.getElementById("opacityDiv").style.display = "none";
+  }
+}
+
+// document.getElementsByTagName("svg").style.width="100%";
